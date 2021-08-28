@@ -7,30 +7,31 @@
                     <p>{{address.address_1}}</p>
                     <p>{{address.address_2}}</p>
                     <p>{{address.city}} &nbsp; {{address.state}} &nbsp; {{address.zip}}</p>
+                    <a href="{{address.map_url}}">Map</a>
                 </div>
             </div>
             <div class="column card location-card-border">
                 <div class="location-card">
                     <p> <strong>Hours</strong></p>
-                    <p v-if="hours.monday">Monday: {{hours.monday.start_time}} - {{hours.monday.end_time}}</p>
+                    <p> Closed today</p>
+                    <p> &nbsp;</p>
+                    <a href="#"> See all hours </a>
                 </div>
 
             </div>
             <div class="column card">
                 <div class="location-card">
                     <p> <strong>Contact</strong></p>
-                    <p>{{contact.email}}</p>
-                    <p>{{contact.phone}}</p>
+                    <a href="mailto:{{contact.email}}">{{contact.email}}</a> <br/>
+                    <a href="tel:{{contact.phone}}">{{formatPhoneNumber(contact.phone)}}</a> <br/>
+
+                    <a href="{{contact.facebook}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" /></a>
+                    <a href="{{contact.twitter}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" /></a>
+                    <a href="{{contact.insta}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" /></a>
                 </div>
 
             </div>
         </div>
-
-        <ul v-if="errors && errors.length">
-            <li v-for="(error, index) of errors" :key="index">
-                {{error.message}}
-            </li>
-        </ul>
     </div>
 </template>
 
@@ -39,6 +40,17 @@
 
     export default {
         name: 'LocationInfo',
+        methods: {
+            formatPhoneNumber: function(phoneNumberString) {
+                var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+                var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+                if (match) {
+
+                    return ['(', match[2], ') ', match[3], '-', match[4]].join('');
+                }
+                return null;
+            }
+        },
         data() {
             return {
                 address: {},

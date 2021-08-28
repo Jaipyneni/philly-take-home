@@ -1,14 +1,22 @@
 <template>
-    <div>
-        <Header></Header>
-    </div>
-  <div class="about">
-      <p> <strong>About</strong></p>
-    <AboutContent></AboutContent>
-  </div>
-  <img src="../assets/images/parks-and-rec-logo.png">
-    <div class="top-padding">
-        <Footer></Footer>
+    <div class="about">
+        <Header isAboutActive></Header>
+        <div class="container about-align is-overlay">
+            <div><h2>About</h2></div>
+            <AboutContent></AboutContent>
+        </div>
+        <div class="columns">
+            <div class="column is-one-quarter is-offset-4">
+                <figure class="image">
+                    <img src="../assets/images/parks-and-rec-logo.png">
+                </figure>
+            </div>
+        </div>
+        <div class="container home-align is-overlay">
+            <div class="top-padding">
+                <Footer bgcolor='has-background-dark' textcolor='has-text-white'></Footer>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -25,3 +33,28 @@ export default {
   }
 }
 </script>
+<style scoped>
+    .hero.is-info .title {
+        color: black;
+    }
+    .hero.is-info {
+        background-color: #fffabb;
+        color: #fff;
+    }
+    .about-align {
+        position: relative;
+        top: -40px;
+        overflow: visible;
+        border: 10px solid white;
+        background-color: white;
+    }
+    h2 {
+        text-align: left;
+        font-weight: bold;
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }
+    .navbar-end {
+        color: black;
+    }
+</style>

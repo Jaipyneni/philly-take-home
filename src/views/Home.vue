@@ -68,6 +68,16 @@
 </script>
 
 <style scoped>
+    .hero.is-info .title {
+        color: black;
+    }
+    .navbar-end {
+        color: black;
+    }
+    .hero.is-info {
+        background-color: #b3e8f9;
+        color: #fff;
+    }
     .home-align {
         position: relative;
         top: -40px;

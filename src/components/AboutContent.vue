@@ -1,12 +1,6 @@
 <template>
-  <div>
+  <div >
       <div v-html="content"></div>
-
-      <ul v-if="errors && errors.length">
-            <li v-for="(error, index) of errors" :key="index">
-                {{error.message}}
-            </li>
-      </ul>
   </div>
 </template>
 
@@ -33,3 +27,19 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+    /deep/ h2 {
+        text-align: left;
+        font-weight: bold;
+        padding-top:10px;
+        padding-bottom: 10px;
+    }
+
+    /deep/ p {
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+</style>

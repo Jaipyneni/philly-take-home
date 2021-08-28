@@ -12,7 +12,7 @@
           </span>
                     </div>
                     <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
+                        <div class="navbar-end has-text-black">
                             <a class="navbar-item">
                                 Visitor Info
                             </a>
@@ -34,7 +34,7 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
             <div class="container has-text-left">
-                <p class="title">
+                <p class="title has-text-black">
                     <a >
                         <img class="banner-image" src="../assets/images/love-park-logo.png">
                     </a>
