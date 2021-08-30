@@ -23,7 +23,7 @@
                                 Get Involved
                             </a>
                             <a class="navbar-item">
-                                About
+                                <router-link to="/about"><a class="navbar-item">About</a></router-link>
                             </a>
                         </div>
                     </div>
@@ -35,9 +35,11 @@
         <div class="hero-body">
             <div class="container has-text-left">
                 <p class="title has-text-black">
+                    <router-link to="/">
                     <a >
                         <img class="banner-image" src="../assets/images/love-park-logo.png">
                     </a>
+                    </router-link>
                     Spring into LOVE
                 </p>
             </div>
@@ -53,11 +55,6 @@
 </script>
 
 <style scoped>
-    .hero-image {
-        background-image:url('~@/assets/images/love-park-hero.jpeg');
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
     .hero-body {
         height: 300px;
     }
