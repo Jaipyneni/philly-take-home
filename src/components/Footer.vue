@@ -1,33 +1,36 @@
 <template>
-    <div>
+    <div v-bind:class="[bgcolor]">
         <div class="columns">
-            <div class="column card location-card-border">
+            <div class="column card location-card-border" v-bind:class="[bgcolor, textcolor]">
                 <div class="location-card">
-                    <p> <strong>Address</strong></p>
+                    <p> <strong v-bind:class="[textcolor]">Address</strong></p>
                     <p>{{address.address_1}}</p>
                     <p>{{address.address_2}}</p>
                     <p>{{address.city}} &nbsp; {{address.state}} &nbsp; {{address.zip}}</p>
-                    <a href="{{address.map_url}}">Map</a>
+                    <a v-bind:href="address.map_url"><span v-bind:class="[textcolor]" :style="styleObject">Map</span></a>
                 </div>
             </div>
-            <div class="column card location-card-border">
+            <div class="column card location-card-border" v-bind:class="[bgcolor, textcolor]">
                 <div class="location-card">
-                    <p> <strong>Hours</strong></p>
+                    <p> <strong v-bind:class="[textcolor]">Hours</strong></p>
                     <p> Closed today</p>
                     <p> &nbsp;</p>
-                    <a href="#"> See all hours </a>
+                    <a href="#">
+                        <span v-bind:class="[textcolor]" :style="styleObject">See all hours </span></a>
                 </div>
-
             </div>
-            <div class="column card">
-                <div class="location-card">
-                    <p> <strong>Contact</strong></p>
-                    <a href="mailto:{{contact.email}}">{{contact.email}}</a> <br/>
-                    <a href="tel:{{contact.phone}}">{{formatPhoneNumber(contact.phone)}}</a> <br/>
+            <div class="column card" v-bind:class="[bgcolor, textcolor]">
+                <div class="location-card" >
+                    <p> <strong v-bind:class="[textcolor]">Contact</strong></p>
+                    <a v-bind:href="'mailto:' + contact.email"><span v-bind:class="[textcolor]" :style="styleObject">{{contact.email}}</span></a> <br/>
+                    <a v-bind:href="'tel:' + contact.phone">
+                        <span v-bind:class="[textcolor]" :style="styleObject"> {{formatPhoneNumber(contact.phone)}}
+                        </span>
+                    </a> <br/>
 
-                    <a href="{{contact.facebook}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" /></a>
-                    <a href="{{contact.twitter}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" /></a>
-                    <a href="{{contact.insta}}"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" /></a>
+                    <a v-bind:href="contact.facebook"> <span v-bind:class="[textcolor]"> <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" /> </span></a>
+                    <a v-bind:href="contact.twitter"> <span v-bind:class="[textcolor]"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" /></span></a>
+                    <a v-bind:href="contact.insta"><span v-bind:class="[textcolor]"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" /></span></a>
                 </div>
 
             </div>
@@ -39,7 +42,20 @@
     import axios from 'axios';
 
     export default {
-        name: 'LocationInfo',
+        name: 'Footer',
+        props: {
+            bgcolor: {
+                type: String,
+                default: ''
+            },
+            textcolor: {
+                type: String,
+                default: ''
+            },
+            styleObject: {
+                type: Object,
+            }
+        },
         methods: {
             formatPhoneNumber: function(phoneNumberString) {
                 var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -104,7 +120,9 @@
             border-bottom-width: thin;
         }
     }
-
+    a {
+        text-decoration: underline;
+    }
 
     .card {
         border-radius: 0;
@@ -128,9 +146,6 @@
             padding-left: 0.25rem;
         }
     }
-
-
-
     .columns {
         margin: 20px;
     }

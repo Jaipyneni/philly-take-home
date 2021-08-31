@@ -12,9 +12,9 @@
                 </figure>
             </div>
         </div>
-        <div class="container home-align is-overlay">
-            <div class="top-padding">
-                <Footer bgcolor='has-background-dark' textcolor='has-text-white'></Footer>
+        <div class="has-background-link">
+            <div class="container">
+                <Footer bgcolor='has-background-link' textcolor='has-text-white'></Footer>
             </div>
         </div>
     </div>
@@ -30,13 +30,20 @@ export default {
   name: 'About',
   components: {
     AboutContent, Header, Footer
+  },
+  data() {
+      return {
+          styleObject: {
+              'text-decoration': 'underline',
+              'border-bottom-color': 'white',
+              'border-bottom-style': 'solid',
+              'border-bottom-width': '1px'
+          }
+      }
   }
 }
 </script>
 <style scoped>
-    .hero.is-info .title {
-        color: black;
-    }
     .hero.is-info {
         background-color: #fffabb;
         color: #fff;
@@ -53,8 +60,5 @@ export default {
         font-weight: bold;
         padding-bottom: 20px;
         padding-top: 10px;
-    }
-    .navbar-end {
-        color: black;
     }
 </style>

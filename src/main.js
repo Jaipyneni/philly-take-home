@@ -6,6 +6,7 @@ require('@/assets/styles/main.scss');
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import './registerServiceWorker'
 
 library.add(faFacebook)
 library.add(faInstagram)

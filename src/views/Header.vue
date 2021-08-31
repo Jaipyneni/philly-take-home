@@ -13,16 +13,16 @@
                     </div>
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end has-text-black">
-                            <a class="navbar-item">
+                            <a class="navbar-item" v-bind:class="{'is-active': isVisitorInfoActive}">
                                 Visitor Info
                             </a>
-                            <a class="navbar-item">
+                            <a class="navbar-item" v-bind:class="{'is-active': isEventsActive}">
                                 Events
                             </a>
-                            <a class="navbar-item">
+                            <a class="navbar-item" v-bind:class="{'is-active': isGetInvolvedActive}">
                                 Get Involved
                             </a>
-                            <a class="navbar-item">
+                            <a class="navbar-item" v-bind:class="{'is-active': isAboutActive}">
                                 <router-link to="/about"><a class="navbar-item">About</a></router-link>
                             </a>
                         </div>
@@ -50,7 +50,25 @@
 <script>
 
     export default {
-        name: 'Header'
+        name: 'Header',
+        props: {
+            isVisitorInfoActive: {
+                type: Boolean,
+                default: false
+            },
+            isEventsActive: {
+                type: Boolean,
+                default: false
+            },
+            isGetInvolvedActive: {
+                type: Boolean,
+                default: false
+            },
+            isAboutActive: {
+                type: Boolean,
+                default: false
+            }
+        }
     }
 </script>
 
@@ -60,5 +78,27 @@
     }
     .banner-image {
         height: 220px;
+    }
+    @media (max-width:438px) {
+        .banner-image {
+            height: 110px;
+        }
+        .title {
+            font-size: 1rem;
+        }
+        .hero-body {
+            height: 180px;
+        }
+    }
+    @media (min-width:438px) and (max-width:768px) {
+        .banner-image {
+            height: 165px;
+        }
+        .title {
+            font-size: 1.5rem;
+        }
+        .hero-body {
+            height: 240px;
+        }
     }
 </style>
